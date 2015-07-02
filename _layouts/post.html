@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+{% assign minutes = content | number_of_words | divided_by: 180 %}
+{% if minutes == 0 %}
+{% assign minutes = 1 %}
+{% endif %}
+
+<div class="post-header mb2">
+  <h1 class="py2">{{ page.title }}</h1>
+  <span class="post-meta">
+    {{ page.date | date: "%b %-d, %Y" }} by <a href="{{ page.author_url }}" target="_blank">{{ page.author }}</a>
+    {% if page.author_2 %}
+      & <a href="{{ page.author_2_url }}" target="_blank">{{ page.author_2 }}</a>
+    {% endif %}
+  </span>
+<div style="float:right !important; ">
+{% if page.author_2_handle %}
+{% capture second_handle %}{{ "& @" }}{{ page.author_2_handle }}{% endcapture %}
+{% endif %}
+
+<a class="twitter-share-button"
+  href="https://twitter.com/share" data-via="button" data-text="{{ page.title }} by @{{ page.author_handle }} {{ second_handle }}">
+Tweet
+</a>
+<script type="text/javascript">
+window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+</script>
+
+
+</div>
+  </a></span>
+  <br>
+  {% if page.update_date %}
+    <span class="post-meta">Updated: {{ page.update_date | date: "%b %-d, %Y" }}</span><br>
+  {% endif %}
+  <span class="post-meta small">{{ minutes }} minute read</span>
+</div>
+
+<article class="post-content">
+  {{ content }}
+</article>

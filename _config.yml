@@ -1,0 +1,18 @@
+# Site settings
+title: Building 
+email: chris@usebutton.com
+author: Button Engineering
+description: "Learnings from building Button"
+baseurl: ""
+url: "http://building.usebutton.com"
+google_analytics: UA-55821947-1
+animated: true
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+paginate: 3
+sass:
+  compressed: true
+
+exclude: [Gemfile, Gemfile.lock]

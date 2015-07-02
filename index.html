@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <div class="posts">
+    {% for post in paginator.posts %}
+      <div class="post {% if site.animated %}animated fade-in-down{% endif %}">
+        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
+          <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+
+          <h3 class="h2 post-title">{{ post.title }}</h3>
+          </a>
+          <span class="author" style="font-size:0.7em";>by <a href="{{ post.author_url }}" target="_blank">{{ post.author }}</a>
+            {% if post.author_2 %}
+              & <a href="{{ post.author_2_url }}" target="_blank">{{ post.author_2 }}</a>
+            {% endif %}
+
+          </span>
+          <p class="post-summary">{{ post.content | strip_html | truncatewords: 50 }}</p>
+          <!-- post.summary -->
+          <!-- post.content -->
+
+      </div>
+    {% endfor %}
+  </div>
+
+  {% include pagination.html %}
+</div>
